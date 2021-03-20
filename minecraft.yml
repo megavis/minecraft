@@ -1,0 +1,23 @@
+version: '3.0'
+
+services:
+  mc:
+    image: "mymc:plugins"
+    #image: itzg/minecraft-server
+    container_name: minecraft
+    environment:
+      EULA: "true"
+      TYPE: PAPER
+      #MEMORY: 2G
+      MEMORY: 3584M
+      VERSION: 1.12.2
+      # needed for Paper versions before 1.14
+      CONSOLE: "false"
+    restart: always
+    ports:
+      - 25565:25565
+      - 25575:25575
+    volumes:
+      - /opt/minecraft/data:/data
+
+
